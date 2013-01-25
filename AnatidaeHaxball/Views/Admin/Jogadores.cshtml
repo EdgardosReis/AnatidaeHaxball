@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AnatidaeHaxball.Jogador>
+
+@{
+    ViewBag.Title = "Jogadores";
+}
+
+<h2>Jogadores</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateJogador")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.avatar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.posicao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.avatar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.posicao)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idJogador }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idJogador })
+        </td>
+    </tr>
+}
+
+</table>

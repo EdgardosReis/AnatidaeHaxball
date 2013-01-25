@@ -1,0 +1,33 @@
+﻿@{
+    //ViewBag.Title = "Home Page";
+}
+
+		<div class="slider-wrapper theme-dark">
+			<div id="slider" class="nivoSlider">
+				<img src="Images/Slider/Equipa.png" data-thumb="Images/Slider/Equipa.png" alt=""  />
+				<img src="Images/Slider/Sm17.png" data-thumb="Images/Slider/Sm17.png" alt=""  />
+				<img src="Images/Slider/Enigma.png" data-thumb="Images/Slider/Enigma.png" alt=""  />
+				<img src="Images/Slider/Cavas.png" data-thumb="Images/Slider/Cavas.png" alt=""  />
+				<img src="Images/Slider/Crush.png" data-thumb="Images/Slider/Crush.png" alt=""  />
+				<img src="Images/Slider/Eko.png" data-thumb="Images/Slider/Eko.png" alt=""  />
+				<img src="Images/Slider/Ziz.png" data-thumb="Images/Slider/Ziz.png" alt=""  />
+			</div>
+		</div>
+
+
+@section head{
+        <link rel="stylesheet" href="Content/Slider/Themes/dark/dark.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="Content/Slider/nivo-slider.css" type="text/css" media="screen" />
+        <script type="text/javascript" src="Scripts/jquery.nivo.slider.js"></script>
+}
+
+    <script type="text/javascript">
+	/*<![CDATA[*/
+    $(window).load(function() {
+        $('#slider').nivoSlider({
+			effect: 'fade', // Specify sets like: 'fold,fade,sliceDown'
+			pauseTime: 4000
+		});
+    });
+	/*]]>*/
+	</script>

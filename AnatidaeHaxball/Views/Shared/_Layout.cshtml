@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - Anatidae Haxball</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="description" content="Página Web da Equipa Anatidae Haxball">
+        <meta name="keywords" content="anatidae, haxball">
+
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/modernizr")
+
+        @RenderSection("head", required: false)
+
+    </head>
+    <body>
+        
+        <div class="floater"></div>
+        <div class="page_title">@ViewBag.Title</div>
+        @RenderSection("top_menu", required: false)
+        <div class="center">
+            @RenderBody()
+        </div>
+
+
+@*        @RenderSection("scripts", required: false)*@
+
+        <script type="text/javascript">
+            /*<![CDATA[*/
+            $.fn.vAlign = function () {
+                return this.each(function () {
+        	        $(".floater").css('margin-top', (-Math.ceil($(this).height() / 2) - 81) + "px"); //-81 é a metade da altura do menu
+                });
+            };
+
+            $(".center").vAlign();
+            /*]]>*/
+        </script>
+
+        <div class="black_bar">
+	        <ul id="main_menu" >
+		        <li id="his">@Html.ActionLink("Apresentação", "Index", "Apresentacao")</li>
+		        <li id="stats">@Html.ActionLink("Estatísticas", "Index", "Estatisticas")</li>
+		        <li id="chat">@Html.ActionLink("Chat", "Index", "Chat")</li>
+		        <li id="cal">@Html.ActionLink("Calendário", "Index","Calendario")</li>
+		        <li id="plantel">@Html.ActionLink("Plantel", "Index","Plantel")</li>
+		        <li id="compet">@Html.ActionLink("Competições", "Index","Competicoes")</li>
+		        <li id="logo">@Html.ActionLink("Logo", "Index", "Home")</li>
+	        </ul>
+        </div>
+
+    </body>
+</html>

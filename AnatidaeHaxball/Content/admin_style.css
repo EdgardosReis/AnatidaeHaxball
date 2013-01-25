@@ -1,0 +1,18 @@
+﻿	#admin_left_menu{
+		position:absolute;
+		width: 160px;
+		bottom: 0px;
+		top: 0px;
+		left: 0px;
+		background-color: black;
+	}
+
+    #admin_left_menu a {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+
+	#admin_content{
+		
+	}

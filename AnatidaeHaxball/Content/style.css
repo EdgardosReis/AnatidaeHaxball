@@ -1,0 +1,340 @@
+		html
+		{
+			height: 100%;
+		} 
+		body
+		{
+			height: 98%;
+			font:14px/1.6 "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+			color:#333;
+			background-color:#fbbe01;
+		}
+		
+		@font-face
+		 {
+		 font-family: Score-Board;
+		 src: url('scoreboard.eot'), /* IE9 */
+			  url('scoreboard.ttf');
+
+		 }
+		  
+		.black_bar {
+			position:fixed;
+			background-color:black;
+			bottom:30px;
+			left:0px;
+			right:0px;
+			height: 113px;
+			
+			-moz-box-shadow: 0px 0px 10px #000;
+			-webkit-box-shadow: 0px 0px 10px #000;
+			box-shadow: 0px 0px 10px #000;
+			/* For IE 8 */
+			-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+			/* For IE 5.5 - 7 */
+			filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+		}
+  
+		#main_menu {
+			position: relative;
+			top: -22px;
+			width: 930px;
+			height: 150px;
+			background: transparent url(../Images/Menu/menu.png) no-repeat;
+			margin: 0 auto;
+			padding: 0;
+
+		}
+		
+		#main_menu li {
+			display: block;
+			position: absolute;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		
+		#main_menu a {
+			display: block;
+			text-indent: -9999px;
+			text-decoration: none;
+			outline: none;
+		}
+		
+		#his {
+			left: 0px;
+			top: 28px;
+			z-index: 30;
+		}
+		#his a:hover {
+			background: url(../Images/Menu/menu.png) -0px -154px no-repeat;
+		}
+		#his a {
+			width: 409px;
+			height: 32px;
+		}
+
+		
+		#stats {
+			left: 17px;
+			top: 63px;
+			z-index: 30;
+		}
+		#stats a {
+			width: 376px;
+			height: 31px;
+		}
+		#stats a:hover {
+			background: url(../Images/Menu/menu.png) -17px -189px no-repeat;
+		}
+		
+		
+		#chat {
+			left: 34px;
+			top: 97px;
+			z-index: 30;
+		}
+		#chat a {
+			width: 379px;
+			height: 32px;
+		}
+		#chat a:hover {
+			background: url(../Images/Menu/menu.png) -34px -223px no-repeat;
+		}
+		
+		
+		#cal {
+			left: 519px;
+			top: 28px;
+			z-index: 30;
+		}
+		#cal a {
+			width: 411px;
+			height: 32px;
+		}
+		#cal a:hover {
+			background: url(../Images/Menu/menu.png) -519px -154px no-repeat;
+		}
+		
+		
+		#plantel {
+			left: 535px;
+			top: 63px;
+			z-index: 30;
+		}
+		#plantel a {
+			width: 377px;
+			height: 32px;
+		}
+		#plantel a:hover {
+			background: url(../Images/Menu/menu.png) -535px -189px no-repeat;
+		}
+		
+		
+		#compet {
+			left: 516px;
+			top: 97px;
+			z-index: 30;
+		}
+		#compet a {
+			width: 381px;
+			height: 32px;
+		}
+		#compet a:hover {
+			background: url(../Images/Menu/menu.png) -516px -223px no-repeat;
+		}
+		
+		
+		#logo {
+			left: 388px;
+			top: 0px;
+			z-index: 20;
+		}
+		#logo a {
+			width: 153px;
+			height: 153px;
+		}
+		#logo a:hover {
+			background: url(../Images/Menu/menu.png) -388px -255px no-repeat;
+		}
+
+		
+		.slider-wrapper {
+			width:822px;
+			height:357px;
+			position:absolute;
+			left:50%;
+			top:50%;
+			margin: -266px 0 0 -421px; /*     height/2+87 0 0 width/2     */
+			
+		}
+		
+		.left_bar{
+			position:fixed;
+			
+			border-style:solid;
+			border-color:#000000;
+			border-width: 1px;
+			
+			background: #000000 url('../Images/sidebar_tile.gif') repeat left top;
+			width: 175px;
+			height: 375px;
+
+			top: 50%;
+			left: 10px;
+			margin: -264px 0 0 0; /*     height/2+87 0 0 width/2     */
+		
+		
+			font-family: Score-Board, cursive;
+			font-size:17pt;
+			text-align: center;
+			color: #ffb400;
+		
+		}
+		
+		.vs {
+			position:absolute;
+			top: 50%;
+			left: 1px;
+		}
+		
+		
+		.right_bar{
+			position:fixed;
+			
+			border-style:solid;
+			border-color:#000000;
+			border-width: 1px;
+			
+			
+			background: #000000 url('../Images/sidebar_tile.gif') repeat left top;
+			width: 175px;
+			height: 375px;
+
+			top: 50%;
+			right: 10px;
+			margin: -264px 0 0 0; /*     height/2+87 0 0 width/2     */
+		
+			font-family: Score-Board, cursive;
+			font-size:17pt;
+			text-align: center;
+			color: #ffb400;
+		
+		}
+		
+		#date{
+			font-size: 14pt;
+			margin: 0 0;
+		}
+		#game{
+			font-size: 12pt;
+			font-weight: bold;
+			margin: 0 0;
+		}
+		
+		.next_game{
+			border-style:dotted none none none;
+			border-color:#ffb400;
+			border-width: 1px;
+		}
+
+.floater {
+	float:left;
+	height:50%;
+	margin-top:-300px; /* half the box's height */
+	position:relative;
+
+
+}
+
+.center {
+	clear: both;
+	width:800px;
+	position:relative;
+	margin:0 auto;
+	padding-bottom:168px;
+
+}
+
+
+#logo_oficial {
+    display: block; 
+    margin-left:auto;
+    margin-right:auto;
+}
+
+		
+		
+		#chat_box{
+			height: 450px; 
+			width: 650px;
+			margin: 0 auto;
+			/*position: absolute;
+			left:50%;
+			top:50%;
+			margin: -300 0 0 -325px;*/ /*     height/2+75 0 0 width/2     */
+		}
+
+		
+.page_title{
+	font-size:5em;
+	font-weight:bold;
+	font-variant:small-caps;
+	width: 100%;
+	color: black;
+	text-align: center;
+			/*
+			border-style:solid;
+			border-color:green;
+			border-width: 1px;
+			*/
+
+}
+
+.radio{
+			position:fixed;
+			top:0px;
+			left:0px;
+			right:0px;
+
+			/*
+			border-style:solid;
+			border-color:green;
+			border-width: 1px;
+			*/
+
+}
+
+.top_menu {
+	text-align: center;
+	font-size:1.5em;
+	font-weight:bold;
+}
+
+div.top_menu a:link {text-decoration:none; color:black;}
+div.top_menu a:visited {text-decoration:none; color:black}
+div.top_menu a:hover {text-decoration:none; color:white}
+div.top_menu a:active {text-decoration:none; color:black}
+		
+		
+		
+/*====================*/
+/*=== Teams Logos  ===*/
+/*====================*/
+
+.top_logo{
+top:20px;
+ position:relative;
+}
+.bottom_logo{
+top:80px;
+ position:relative;
+}
+	
+	
+/*====================*/
+/*=== Other Styles ===*/
+/*====================*/
+.clear {
+	clear:both;
+}
