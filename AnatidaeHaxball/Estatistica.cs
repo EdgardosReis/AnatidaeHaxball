@@ -17,8 +17,8 @@ namespace AnatidaeHaxball
         public int jogoId { get; set; }
         public int competicaoId { get; set; }
         public int jogadorID { get; set; }
-        public Nullable<int> golos { get; set; }
-        public Nullable<int> assistencias { get; set; }
+        public int golos { get; set; }
+        public int assistencias { get; set; }
     
         public virtual Jogador Jogador { get; set; }
         public virtual Jogo Jogo { get; set; }

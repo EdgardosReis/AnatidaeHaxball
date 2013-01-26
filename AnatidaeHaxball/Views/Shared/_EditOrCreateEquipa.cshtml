@@ -1,0 +1,55 @@
+﻿@model AnatidaeHaxball.Equipa
+
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Equipa</legend>
+
+        @Html.HiddenFor(model => model.idEquipa)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.tag)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.tag)
+            @Html.ValidationMessageFor(model => model.tag)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.nome)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.nome)
+            @Html.ValidationMessageFor(model => model.nome)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.activa)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.activa)
+            @Html.ValidationMessageFor(model => model.activa)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.logo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.logo)
+            @Html.ValidationMessageFor(model => model.logo)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

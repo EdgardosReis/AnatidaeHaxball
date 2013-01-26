@@ -1,5 +1,21 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Página da Administração";
 }
 
-<h2>Index</h2>
+<img id="logo_oficial" src="../Images/logooficial.png" />
+
+@section scripts{
+
+        <script type="text/javascript">
+            /*<![CDATA[*/
+            $.fn.vAlign = function () {
+                return this.each(function () {
+        	        $(".floater").css('margin-top', -Math.ceil($(this).height() / 2)  + "px"); 
+                });
+            };
+
+            $(".center").vAlign();
+            /*]]>*/
+        </script>
+
+}

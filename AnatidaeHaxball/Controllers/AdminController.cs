@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnatidaeHaxball.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,7 +22,7 @@ namespace AnatidaeHaxball.Controllers
 
         public ActionResult Jogadores()
         {
-            return View(AppServices.GetAllJogadores());
+            return View(AppServices.GetAllJogadoresDaEquipa());
         }
 
         //
@@ -29,7 +30,7 @@ namespace AnatidaeHaxball.Controllers
 
         public ActionResult CreateJogador()
         {
-            return View();
+            return View(new JogadorModels());
         }
 
         //
@@ -46,7 +47,7 @@ namespace AnatidaeHaxball.Controllers
             }
             catch
             {
-                return View();
+                return View(new JogadorModels());
             }
         }
 
@@ -55,7 +56,9 @@ namespace AnatidaeHaxball.Controllers
 
         public ActionResult EditJogador(int id)
         {
-            return View(AppServices.GetJogador(id));
+            JogadorModels jm = new JogadorModels();
+            jm.Jogador = AppServices.GetJogador(id);
+            return View(jm);
         }
 
         //
@@ -72,7 +75,9 @@ namespace AnatidaeHaxball.Controllers
             }
             catch
             {
-                return View();
+                JogadorModels jm = new JogadorModels();
+                jm.Jogador = AppServices.GetJogador(id);
+                return View(jm);
             }
         }
 
@@ -92,13 +97,101 @@ namespace AnatidaeHaxball.Controllers
         {
             try
             {
-                AppServices.RemoveJogador(id);
+                AppServices.RemoveJogador(id, collection["Notas"]);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Jogadores");
             }
             catch
             {
-                return View();
+                return View(AppServices.GetJogador(id));
+            }
+        }
+
+        //**************************************// EQUIPAS //**************************************//
+
+        //
+        // GET: /Admin/Jogadores/
+
+        public ActionResult Equipas()
+        {
+            return View(AppServices.GetAllEquipas());
+        }
+
+        //
+        // GET: /Admin/Create
+
+        public ActionResult CreateEquipa()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Admin/Create
+
+        [HttpPost]
+        public ActionResult CreateEquipa(Equipa equipa)
+        {
+            try
+            {
+                AppServices.AddEquipa(equipa);
+
+                return RedirectToAction("Equipas");
+            }
+            catch
+            {
+                return View(equipa);
+            }
+        }
+
+        //
+        // GET: /Admin/Edit/5
+
+        public ActionResult EditEquipa(int id)
+        {
+            return View(AppServices.GetEquipa(id));
+        }
+
+        //
+        // POST: /Admin/Edit/5
+
+        [HttpPost]
+        public ActionResult EditEquipa(int id, Equipa equipa)
+        {
+            try
+            {
+                AppServices.EditEquipa(equipa);
+
+                return RedirectToAction("Equipas");
+            }
+            catch
+            {
+                return View(AppServices.GetEquipa(id));
+            }
+        }
+
+        //
+        // GET: /Admin/Delete/5
+
+        public ActionResult DeleteEquipa(int id)
+        {
+            return View(AppServices.GetEquipa(id));
+        }
+
+        //
+        // POST: /Admin/Delete/5
+
+        [HttpPost]
+        public ActionResult DeleteEquipa(int id, Equipa equipa)
+        {
+            try
+            {
+                AppServices.RemoveEquipa(id);
+
+                return RedirectToAction("Equipas");
+            }
+            catch
+            {
+                return View(AppServices.GetEquipa(id));
             }
         }
     }

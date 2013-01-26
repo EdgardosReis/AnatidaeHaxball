@@ -17,13 +17,16 @@ namespace AnatidaeHaxball
         public Jogador()
         {
             this.Estatistica = new HashSet<Estatistica>();
+            this.LogJogadores = new HashSet<LogJogadores>();
         }
     
         public int idJogador { get; set; }
         public string nome { get; set; }
         public string avatar { get; set; }
         public string posicao { get; set; }
+        public bool naEquipa { get; set; }
     
         public virtual ICollection<Estatistica> Estatistica { get; set; }
+        public virtual ICollection<LogJogadores> LogJogadores { get; set; }
     }
 }

@@ -31,5 +31,6 @@ namespace AnatidaeHaxball
         public DbSet<Estatistica> Estatistica { get; set; }
         public DbSet<Jogador> Jogador { get; set; }
         public DbSet<Jogo> Jogo { get; set; }
+        public DbSet<LogJogadores> LogJogadores { get; set; }
     }
 }

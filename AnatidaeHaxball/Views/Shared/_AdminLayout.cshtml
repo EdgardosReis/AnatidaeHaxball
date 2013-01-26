@@ -18,14 +18,14 @@
         <div id="admin_left_menu">
             @Html.ActionLink("Jogadores", "Jogadores", "Admin")
         </div>
+        <div class="floater"></div>
         <div class="page_title">@ViewBag.Title</div>
         @RenderSection("top_menu", required: false)
         <div class="center">
             @RenderBody()
         </div>
 
-
-@*        @RenderSection("scripts", required: false)*@
+        @RenderSection("scripts", required: false)
 
 
 

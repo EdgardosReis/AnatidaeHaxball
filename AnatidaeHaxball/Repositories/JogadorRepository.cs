@@ -22,7 +22,7 @@ namespace AnatidaeHaxball.Repositories
 
         public Jogador GetById(int id)
         {
-            return _repo.Jogador.FirstOrDefault(j => j.idJogador == id);
+            return _repo.Jogador.First(j => j.idJogador == id);
         }
 
         public void Add(Jogador t)
@@ -34,10 +34,11 @@ namespace AnatidaeHaxball.Repositories
 
         public void Edit(Jogador t)
         {
-            Jogador jogador = _repo.Jogador.FirstOrDefault(j => j.idJogador == t.idJogador);
+            Jogador jogador = _repo.Jogador.First(j => j.idJogador == t.idJogador);
             jogador.avatar = t.avatar;
             jogador.nome = t.nome;
             jogador.posicao = t.posicao;
+            jogador.naEquipa = t.naEquipa;
 
             _repo.SaveChanges();
         }

@@ -30,8 +30,17 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.posicao)
     </div>
+
+
+
 </fieldset>
 @using (Html.BeginForm()) {
+    <div class="editor-field">
+        @Html.DisplayName("Notas")
+    </div>
+    <div class="editor-field">
+        @Html.TextArea("Notas")
+    </div>
     <p>
         <input type="submit" value="Delete" /> |
         @Html.ActionLink("Back to List", "Index")

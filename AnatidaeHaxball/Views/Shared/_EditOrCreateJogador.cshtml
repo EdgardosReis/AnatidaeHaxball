@@ -1,0 +1,47 @@
+﻿@model AnatidaeHaxball.Models.JogadorModels
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Jogador</legend>
+
+        @Html.HiddenFor(model => model.Jogador.idJogador)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Jogador.nome)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Jogador.nome)
+            @Html.ValidationMessageFor(model => model.Jogador.nome)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Jogador.avatar)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Jogador.avatar)
+            @Html.ValidationMessageFor(model => model.Jogador.avatar)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Jogador.posicao)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Jogador.posicao, new SelectList(Model.Posicoes, "Id", "Name"))
+            @Html.ValidationMessageFor(model => model.Jogador.posicao)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
