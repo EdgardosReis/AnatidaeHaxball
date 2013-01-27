@@ -39,8 +39,8 @@ namespace AnatidaeHaxball.Controllers
         [HttpPost]
         public ActionResult CreateJogador(Jogador jogador)
         {
-            try
-            {
+            //try
+            //{
                 jogador.nomeShirt = DataUtils.CreateJogadorShirt(
                     HttpContext.Server.MapPath("../Images/Player_Shirts"),
                     jogador);
@@ -48,11 +48,11 @@ namespace AnatidaeHaxball.Controllers
                 AppServices.AddJogador(jogador);
 
                 return RedirectToAction("Jogadores");
-            }
-            catch
-            {
-                return View(new JogadorModels());
-            }
+            //}
+            //catch
+            //{
+            //    return View(new JogadorModels());
+            //}
         }
 
         //
