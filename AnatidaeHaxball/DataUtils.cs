@@ -36,7 +36,7 @@ namespace AnatidaeHaxball
 
             string shirtName = (jogador.nome + jogador.idJogador).GetHashCode() + ".png";
 
-            newImage.Save(Path.Combine(path, shirtName));
+            //newImage.Save(Path.Combine(path, shirtName));
 
             return shirtName;
         }
