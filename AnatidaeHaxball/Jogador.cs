@@ -25,6 +25,8 @@ namespace AnatidaeHaxball
         public string avatar { get; set; }
         public string posicao { get; set; }
         public bool naEquipa { get; set; }
+        public string nomeShirt { get; set; }
+        public string ave { get; set; }
     
         public virtual ICollection<Estatistica> Estatistica { get; set; }
         public virtual ICollection<LogJogadores> LogJogadores { get; set; }

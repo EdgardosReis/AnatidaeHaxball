@@ -1,4 +1,5 @@
-﻿@model IEnumerable<AnatidaeHaxball.Jogador>
+﻿@using AnatidaeHaxball
+@model IEnumerable<AnatidaeHaxball.Jogador>
 
 @{
     ViewBag.Title = "Jogadores";
@@ -7,7 +8,7 @@
 <h2>Jogadores</h2>
 
 <p>
-    @Html.ActionLink("Create New", "CreateJogador")
+    @Html.ActionLink("Adicionar Novo Jogador", "CreateJogador")
 </p>
 <table>
     <tr>
@@ -19,6 +20,12 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.posicao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ave)
+        </th>
+        <th>
+            Equipamento
         </th>
         <th></th>
     </tr>
@@ -35,9 +42,17 @@
             @Html.DisplayFor(modelItem => item.posicao)
         </td>
         <td>
-            @Html.ActionLink("Edit", "EditJogador", new { id=item.idJogador }) |
-            @Html.ActionLink("Delete", "DeleteJogador", new { id=item.idJogador })
+            @Html.DisplayFor(modelItem => item.ave)
         </td>
+        <td>
+            <img src="~/Images/Player_Shirts/@item.nomeShirt" />
+        </td>
+        <td>
+            <a href="@Url.Action("EditJogador", new { id=item.idJogador })"><img src="~/Images/edit-icon.png" /></a>
+            <a href="@Url.Action("RemoveJogadorFromTeam", new { id=item.idJogador })"><img src="~/Images/delete-icon.png" /></a>
+            <a href="@Url.Action("DeleteJogador", new { id=item.idJogador })"><img src="~/Images/bin-icon.png" /></a>
+        </td>
+
     </tr>
 }
 

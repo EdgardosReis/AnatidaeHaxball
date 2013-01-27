@@ -1,12 +1,16 @@
 ﻿@model AnatidaeHaxball.Jogador
 
 @{
-    ViewBag.Title = "DeleteJogador";
+    ViewBag.Title = "Remover Jogador";
 }
 
-<h2>DeleteJogador</h2>
+<h2>Remover Jogador</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>
+    Tem a certeza que pretende remover toda a informação deste jogador? Se o fizer, apagará todas
+    as estatísticas e todos os registos referentes a este jogador.
+</h3>
+
 <fieldset>
     <legend>Jogador</legend>
 
@@ -35,14 +39,8 @@
 
 </fieldset>
 @using (Html.BeginForm()) {
-    <div class="editor-field">
-        @Html.DisplayName("Notas")
-    </div>
-    <div class="editor-field">
-        @Html.TextArea("Notas")
-    </div>
     <p>
         <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Ver Jogadores", "Jogadores")
     </p>
 }

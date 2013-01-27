@@ -41,6 +41,10 @@ namespace AnatidaeHaxball.Controllers
         {
             try
             {
+                jogador.nomeShirt = DataUtils.CreateJogadorShirt(
+                    HttpContext.Server.MapPath("../Images/Player_Shirts"),
+                    jogador);
+
                 AppServices.AddJogador(jogador);
 
                 return RedirectToAction("Jogadores");
@@ -97,7 +101,27 @@ namespace AnatidaeHaxball.Controllers
         {
             try
             {
-                AppServices.RemoveJogador(id, collection["Notas"]);
+                AppServices.RemoveJogador(id);
+
+                return RedirectToAction("Jogadores");
+            }
+            catch
+            {
+                return View(AppServices.GetJogador(id));
+            }
+        }
+
+        public ActionResult RemoveJogadorFromTeam(int id)
+        {
+            return View(AppServices.GetJogador(id));
+        }
+
+        [HttpPost]
+        public ActionResult RemoveJogadorFromTeam(int id, FormCollection collection)
+        {
+            try
+            {
+                AppServices.RemoveJogadorFromTeam(id, collection["Notas"]);
 
                 return RedirectToAction("Jogadores");
             }

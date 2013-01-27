@@ -12,10 +12,10 @@
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nome)
+            @Html.DisplayNameFor(model => model.tag)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.activa)
+            @Html.DisplayNameFor(model => model.nome)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.logo)
@@ -32,14 +32,12 @@
             @Html.DisplayFor(modelItem => item.nome)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.activa)
+            <img src="~/Images/Team_Logos/@item.logo" />
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.logo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idEquipa}) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idEquipa })
+            <a href="@Url.Action("EditEquipa", new { id=item.idEquipa })"><img src="~/Images/edit-icon.png" /></a>
+            <a href="@Url.Action("DeactivateEquipa", new { id=item.idEquipa })"><img src="~/Images/delete-icon.png" /></a>
+            <a href="@Url.Action("DeleteEquipa", new { id=item.idEquipa })"><img src="~/Images/bin-icon.png" /></a>
         </td>
     </tr>
 }

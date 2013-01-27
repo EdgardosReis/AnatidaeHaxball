@@ -195,6 +195,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ApresentacaoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DataUtils.cs" />
     <Compile Include="Equipa.cs">
       <DependentUpon>AHModel.tt</DependentUpon>
     </Compile>
@@ -327,6 +328,9 @@
       <DependentUpon>AHModel.edmx</DependentUpon>
       <LastGenOutput>AHModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Images\bin-icon.png" />
+    <Content Include="Images\delete-icon.png" />
+    <Content Include="Images\edit-icon.png" />
     <Content Include="Images\logooficial.png" />
     <Content Include="Images\Menu\menu.png" />
     <Content Include="Images\Player_Shirts\shirt_back.png" />
@@ -339,6 +343,17 @@
     <Content Include="Images\Slider\Sm17.png" />
     <Content Include="Images\Slider\Ziz.png" />
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
+    <Content Include="Images\Team_Logos\aun.png" />
+    <Content Include="Images\Team_Logos\ec.png" />
+    <Content Include="Images\Team_Logos\hai.png" />
+    <Content Include="Images\Team_Logos\hc.png" />
+    <Content Include="Images\Team_Logos\hit.png" />
+    <Content Include="Images\Team_Logos\pch.png" />
+    <Content Include="Images\Team_Logos\rhc.png" />
+    <Content Include="Images\Team_Logos\rip.png" />
+    <Content Include="Images\Team_Logos\tl.png" />
+    <Content Include="Images\Team_Logos\xt.png" />
+    <Content Include="Images\Team_Logos\zhc.png" />
     <Content Include="Scripts\jquery-1.9.0.js" />
     <Content Include="Scripts\jquery-1.9.0.min.js" />
     <Content Include="Scripts\jquery-1.9.0.min.map" />
@@ -388,13 +403,14 @@
     <Content Include="Views\Admin\Jogadores.cshtml" />
     <Content Include="Views\Admin\_ViewStart.cshtml" />
     <Content Include="Views\Admin\EditJogador.cshtml" />
-    <Content Include="Views\Admin\DeleteJogador.cshtml" />
+    <Content Include="Views\Admin\RemoveJogadorFromTeam.cshtml" />
     <Content Include="Views\Admin\CreateJogador.cshtml" />
     <Content Include="Views\Shared\_EditOrCreateJogador.cshtml" />
     <Content Include="Views\Admin\Equipas.cshtml" />
     <Content Include="Views\Shared\_EditOrCreateEquipa.cshtml" />
     <Content Include="Views\Admin\CreateEquipa.cshtml" />
     <Content Include="Views\Admin\EditEquipa.cshtml" />
+    <Content Include="Views\Admin\DeleteJogador.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

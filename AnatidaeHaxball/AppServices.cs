@@ -34,17 +34,43 @@ namespace AnatidaeHaxball
 
         public static void AddJogador(Jogador jogador)
         {
-            LogJogadores lj = new LogJogadores { dataEntrada = DateTime.Now, jogadorID = jogador.idJogador };
-            _logJogRepo.Add(lj);
+
             jogador.naEquipa = true;
             _jogadorRepo.Add(jogador);
+            
+            Jogador jog = _jogadorRepo.GetAll().FirstOrDefault(
+                j => j.nome == jogador.nome &&
+                     j.avatar == jogador.avatar &&
+                     j.posicao == jogador.posicao);
+
+            if (jog != null)
+            {
+                LogJogadores lj = new LogJogadores { dataEntrada = DateTime.Now, jogadorID = jog.idJogador };
+
+                _logJogRepo.Add(lj);
+            }
+
         }
 
-        internal static void RemoveJogador(int id, string notas)
+        internal static void RemoveJogador(int id)
         {
-            LogJogadores lj = new LogJogadores { dataSaida = DateTime.Now, jogadorID = id, notas = notas };
-            _logJogRepo.Add(lj);
+            _jogadorRepo.Remove(GetJogador(id));
+        }
 
+        internal static void RemoveJogadorFromTeam(int id, string notas)
+        {
+            LogJogadores existingLog = _logJogRepo.GetAll().FirstOrDefault(l => l.jogadorID == id && l.dataSaida == null && l.dataEntrada != null);
+            if (existingLog != null)
+            {
+                existingLog.dataSaida = DateTime.Now;
+                existingLog.notas = notas;
+                _logJogRepo.Add(existingLog);
+            }
+            else
+            {
+                LogJogadores lj = new LogJogadores { dataSaida = DateTime.Now, jogadorID = id, notas = notas };
+                _logJogRepo.Add(lj);
+            }
 
             Jogador j = GetJogador(id);
             j.naEquipa = false;
