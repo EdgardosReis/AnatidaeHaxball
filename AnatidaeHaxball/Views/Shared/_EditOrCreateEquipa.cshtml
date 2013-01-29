@@ -1,4 +1,5 @@
-﻿@model AnatidaeHaxball.Equipa
+﻿@using AnatidaeHaxball.HtmlHelpers
+@model AnatidaeHaxball.Equipa
 
 <script src="~/Scripts/jquery-1.7.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
@@ -40,7 +41,7 @@
             @Html.LabelFor(model => model.logo)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.logo)
+            @Html.InputImage()
             @Html.ValidationMessageFor(model => model.logo)
         </div>
 

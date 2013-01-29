@@ -7,6 +7,8 @@
         <legend>Jogador</legend>
 
         @Html.HiddenFor(model => model.Jogador.idJogador)
+        @Html.HiddenFor(model => model.Jogador.nomeShirt)
+        @Html.HiddenFor(model => model.Jogador.naEquipa)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Jogador.nome)

@@ -12,12 +12,12 @@
         <EntityTypeShape EntityType="AHDBModel.Jogador" Width="1.5" PointX="0.5" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AHDBModel.Jogo" Width="1.5" PointX="3.375" PointY="0.5" IsExpanded="true" />
         <AssociationConnector Association="AHDBModel.FK__Jogo__competicao__0C85DE4D" ManuallyRouted="false" />
-        <AssociationConnector Association="AHDBModel.FK__Jogo__EquipaCasa__0D7A0286" ManuallyRouted="false" />
-        <AssociationConnector Association="AHDBModel.FK__Jogo__EquipaFora__0E6E26BF" ManuallyRouted="false" />
         <AssociationConnector Association="AHDBModel.FK__Estatisti__jogad__123EB7A3" ManuallyRouted="false" />
         <AssociationConnector Association="AHDBModel.FK__Estatistica__1332DBDC" ManuallyRouted="false" />
         <EntityTypeShape EntityType="AHDBModel.LogJogadores" Width="1.5" PointX="5.75" PointY="5" />
         <AssociationConnector Association="AHDBModel.FK__LogJogado__jogad__05D8E0BE" />
+        <AssociationConnector Association="AHDBModel.FK__Jogo__idEquipaCa__79FD19BE" />
+        <AssociationConnector Association="AHDBModel.FK__Jogo__idEquipaFo__7AF13DF7" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

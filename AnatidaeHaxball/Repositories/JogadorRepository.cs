@@ -39,6 +39,7 @@ namespace AnatidaeHaxball.Repositories
             jogador.nome = t.nome;
             jogador.posicao = t.posicao;
             jogador.naEquipa = t.naEquipa;
+            jogador.nomeShirt = t.nomeShirt;
             jogador.ave = t.ave;
 
             _repo.SaveChanges();

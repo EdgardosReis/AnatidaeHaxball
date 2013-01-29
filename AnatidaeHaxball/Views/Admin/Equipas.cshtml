@@ -1,4 +1,5 @@
-﻿@model IEnumerable<AnatidaeHaxball.Equipa>
+﻿@using AnatidaeHaxball
+@model IEnumerable<AnatidaeHaxball.Equipa>
 
 @{
     ViewBag.Title = "Equipas";
@@ -7,7 +8,7 @@
 <h2>Equipas</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Criar Nova Equipa", "CreateEquipa")
 </p>
 <table>
     <tr>
@@ -32,7 +33,7 @@
             @Html.DisplayFor(modelItem => item.nome)
         </td>
         <td>
-            <img src="~/Images/Team_Logos/@item.logo" />
+            <img height="150" src="@DataUtils.GetTeamLogo(item.logo)" />
         </td>
         <td>
             <a href="@Url.Action("EditEquipa", new { id=item.idEquipa })"><img src="~/Images/edit-icon.png" /></a>

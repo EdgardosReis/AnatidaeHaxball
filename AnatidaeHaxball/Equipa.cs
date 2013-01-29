@@ -16,8 +16,8 @@ namespace AnatidaeHaxball
     {
         public Equipa()
         {
-            this.Jogo = new HashSet<Jogo>();
-            this.Jogo1 = new HashSet<Jogo>();
+            this.Jogo2 = new HashSet<Jogo>();
+            this.Jogo11 = new HashSet<Jogo>();
         }
     
         public int idEquipa { get; set; }
@@ -26,7 +26,7 @@ namespace AnatidaeHaxball
         public bool activa { get; set; }
         public string logo { get; set; }
     
-        public virtual ICollection<Jogo> Jogo { get; set; }
-        public virtual ICollection<Jogo> Jogo1 { get; set; }
+        public virtual ICollection<Jogo> Jogo2 { get; set; }
+        public virtual ICollection<Jogo> Jogo11 { get; set; }
     }
 }

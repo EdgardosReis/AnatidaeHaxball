@@ -13,27 +13,27 @@
           <EntitySet Name="Jogador" EntityType="AHDBModel.Store.Jogador" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Jogo" EntityType="AHDBModel.Store.Jogo" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LogJogadores" EntityType="AHDBModel.Store.LogJogadores" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK__Estatisti__jogad__19AACF41" Association="AHDBModel.Store.FK__Estatisti__jogad__19AACF41">
+          <AssociationSet Name="FK__Estatisti__jogad__7EC1CEDB" Association="AHDBModel.Store.FK__Estatisti__jogad__7EC1CEDB">
             <End Role="Jogador" EntitySet="Jogador" />
             <End Role="Estatistica" EntitySet="Estatistica" />
           </AssociationSet>
-          <AssociationSet Name="FK__Estatistica__1A9EF37A" Association="AHDBModel.Store.FK__Estatistica__1A9EF37A">
+          <AssociationSet Name="FK__Estatistica__7FB5F314" Association="AHDBModel.Store.FK__Estatistica__7FB5F314">
             <End Role="Jogo" EntitySet="Jogo" />
             <End Role="Estatistica" EntitySet="Estatistica" />
           </AssociationSet>
-          <AssociationSet Name="FK__Jogo__competicao__13F1F5EB" Association="AHDBModel.Store.FK__Jogo__competicao__13F1F5EB">
+          <AssociationSet Name="FK__Jogo__competicao__7908F585" Association="AHDBModel.Store.FK__Jogo__competicao__7908F585">
             <End Role="Competicao" EntitySet="Competicao" />
             <End Role="Jogo" EntitySet="Jogo" />
           </AssociationSet>
-          <AssociationSet Name="FK__Jogo__EquipaCasa__14E61A24" Association="AHDBModel.Store.FK__Jogo__EquipaCasa__14E61A24">
+          <AssociationSet Name="FK__Jogo__idEquipaCa__79FD19BE" Association="AHDBModel.Store.FK__Jogo__idEquipaCa__79FD19BE">
             <End Role="Equipa" EntitySet="Equipa" />
             <End Role="Jogo" EntitySet="Jogo" />
           </AssociationSet>
-          <AssociationSet Name="FK__Jogo__EquipaFora__15DA3E5D" Association="AHDBModel.Store.FK__Jogo__EquipaFora__15DA3E5D">
+          <AssociationSet Name="FK__Jogo__idEquipaFo__7AF13DF7" Association="AHDBModel.Store.FK__Jogo__idEquipaFo__7AF13DF7">
             <End Role="Equipa" EntitySet="Equipa" />
             <End Role="Jogo" EntitySet="Jogo" />
           </AssociationSet>
-          <AssociationSet Name="FK__LogJogado__jogad__1E6F845E" Association="AHDBModel.Store.FK__LogJogado__jogad__1E6F845E">
+          <AssociationSet Name="FK__LogJogado__jogad__038683F8" Association="AHDBModel.Store.FK__LogJogado__jogad__038683F8">
             <End Role="Jogador" EntitySet="Jogador" />
             <End Role="LogJogadores" EntitySet="LogJogadores" />
           </AssociationSet>
@@ -106,14 +106,16 @@
           <Property Name="golosForaMao1" Type="tinyint" />
           <Property Name="golosCasaMao2" Type="tinyint" />
           <Property Name="golosForaMao2" Type="tinyint" />
-          <Property Name="data" Type="date" />
-          <Property Name="dataMao2" Type="date" />
+          <Property Name="dataOficial" Type="datetime" />
+          <Property Name="dataOficialMao2" Type="datetime" />
+          <Property Name="dataReal" Type="datetime" />
+          <Property Name="dataRealMao2" Type="datetime" />
           <Property Name="replay" Type="varchar" MaxLength="128" />
           <Property Name="replayAux" Type="varchar" MaxLength="128" />
           <Property Name="replayMao2" Type="varchar" MaxLength="128" />
           <Property Name="replayAuxMao2" Type="varchar" MaxLength="128" />
-          <Property Name="EquipaCasa" Type="int" />
-          <Property Name="EquipaFora" Type="int" />
+          <Property Name="idEquipaCasa" Type="int" />
+          <Property Name="idEquipaFora" Type="int" />
         </EntityType>
         <EntityType Name="LogJogadores">
           <Key>
@@ -125,7 +127,7 @@
           <Property Name="dataSaida" Type="date" />
           <Property Name="notas" Type="varchar" MaxLength="256" />
         </EntityType>
-        <Association Name="FK__Estatisti__jogad__19AACF41">
+        <Association Name="FK__Estatisti__jogad__7EC1CEDB">
           <End Role="Jogador" Type="AHDBModel.Store.Jogador" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -139,7 +141,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Estatistica__1A9EF37A">
+        <Association Name="FK__Estatistica__7FB5F314">
           <End Role="Jogo" Type="AHDBModel.Store.Jogo" Multiplicity="1" />
           <End Role="Estatistica" Type="AHDBModel.Store.Estatistica" Multiplicity="*" />
           <ReferentialConstraint>
@@ -153,7 +155,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Jogo__competicao__13F1F5EB">
+        <Association Name="FK__Jogo__competicao__7908F585">
           <End Role="Competicao" Type="AHDBModel.Store.Competicao" Multiplicity="1" />
           <End Role="Jogo" Type="AHDBModel.Store.Jogo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -165,7 +167,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Jogo__EquipaCasa__14E61A24">
+        <Association Name="FK__Jogo__idEquipaCa__79FD19BE">
           <End Role="Equipa" Type="AHDBModel.Store.Equipa" Multiplicity="0..1" />
           <End Role="Jogo" Type="AHDBModel.Store.Jogo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -173,11 +175,11 @@
               <PropertyRef Name="idEquipa" />
             </Principal>
             <Dependent Role="Jogo">
-              <PropertyRef Name="EquipaCasa" />
+              <PropertyRef Name="idEquipaCasa" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Jogo__EquipaFora__15DA3E5D">
+        <Association Name="FK__Jogo__idEquipaFo__7AF13DF7">
           <End Role="Equipa" Type="AHDBModel.Store.Equipa" Multiplicity="0..1" />
           <End Role="Jogo" Type="AHDBModel.Store.Jogo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -185,11 +187,11 @@
               <PropertyRef Name="idEquipa" />
             </Principal>
             <Dependent Role="Jogo">
-              <PropertyRef Name="EquipaFora" />
+              <PropertyRef Name="idEquipaFora" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LogJogado__jogad__1E6F845E">
+        <Association Name="FK__LogJogado__jogad__038683F8">
           <End Role="Jogador" Type="AHDBModel.Store.Jogador" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -218,14 +220,6 @@
             <End Role="Competicao" EntitySet="Competicao" />
             <End Role="Jogo" EntitySet="Jogo" />
           </AssociationSet>
-          <AssociationSet Name="FK__Jogo__EquipaCasa__0D7A0286" Association="AHDBModel.FK__Jogo__EquipaCasa__0D7A0286">
-            <End Role="Equipa" EntitySet="Equipa" />
-            <End Role="Jogo" EntitySet="Jogo" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Jogo__EquipaFora__0E6E26BF" Association="AHDBModel.FK__Jogo__EquipaFora__0E6E26BF">
-            <End Role="Equipa" EntitySet="Equipa" />
-            <End Role="Jogo" EntitySet="Jogo" />
-          </AssociationSet>
           <AssociationSet Name="FK__Estatisti__jogad__123EB7A3" Association="AHDBModel.FK__Estatisti__jogad__123EB7A3">
             <End Role="Jogador" EntitySet="Jogador" />
             <End Role="Estatistica" EntitySet="Estatistica" />
@@ -238,6 +232,14 @@
           <AssociationSet Name="FK__LogJogado__jogad__05D8E0BE" Association="AHDBModel.FK__LogJogado__jogad__05D8E0BE">
             <End Role="Jogador" EntitySet="Jogador" />
             <End Role="LogJogadores" EntitySet="LogJogadores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Jogo__idEquipaCa__79FD19BE" Association="AHDBModel.FK__Jogo__idEquipaCa__79FD19BE">
+            <End Role="Equipa" EntitySet="Equipa" />
+            <End Role="Jogo" EntitySet="Jogo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Jogo__idEquipaFo__7AF13DF7" Association="AHDBModel.FK__Jogo__idEquipaFo__7AF13DF7">
+            <End Role="Equipa" EntitySet="Equipa" />
+            <End Role="Jogo" EntitySet="Jogo" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Administrador">
@@ -269,8 +271,8 @@
           <Property Name="nome" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="activa" Type="Boolean" Nullable="false" />
           <Property Name="logo" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="Jogo" Relationship="AHDBModel.FK__Jogo__EquipaCasa__0D7A0286" FromRole="Equipa" ToRole="Jogo" />
-          <NavigationProperty Name="Jogo1" Relationship="AHDBModel.FK__Jogo__EquipaFora__0E6E26BF" FromRole="Equipa" ToRole="Jogo" />
+          <NavigationProperty Name="Jogo2" Relationship="AHDBModel.FK__Jogo__idEquipaCa__79FD19BE" FromRole="Equipa" ToRole="Jogo" />
+          <NavigationProperty Name="Jogo11" Relationship="AHDBModel.FK__Jogo__idEquipaFo__7AF13DF7" FromRole="Equipa" ToRole="Jogo" />
         </EntityType>
         <EntityType Name="Estatistica">
           <Key>
@@ -309,13 +311,8 @@
           <Property Name="jogoID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="golosCasa" Type="Int16" />
           <Property Name="golosFora" Type="Int16" />
-          <Property Name="data" Type="DateTime" Precision="0" />
           <Property Name="replay" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
-          <Property Name="EquipaCasa" Type="Int32" />
-          <Property Name="EquipaFora" Type="Int32" />
           <NavigationProperty Name="Competicao" Relationship="AHDBModel.FK__Jogo__competicao__0C85DE4D" FromRole="Jogo" ToRole="Competicao" />
-          <NavigationProperty Name="Equipa" Relationship="AHDBModel.FK__Jogo__EquipaCasa__0D7A0286" FromRole="Jogo" ToRole="Equipa" />
-          <NavigationProperty Name="Equipa1" Relationship="AHDBModel.FK__Jogo__EquipaFora__0E6E26BF" FromRole="Jogo" ToRole="Equipa" />
           <NavigationProperty Name="Estatistica" Relationship="AHDBModel.FK__Estatistica__1332DBDC" FromRole="Jogo" ToRole="Estatistica" />
           <Property Type="Byte" Name="nrMaos" Nullable="false" />
           <Property Type="String" Name="faseDaCompeticao" MaxLength="30" FixedLength="false" Unicode="false" />
@@ -323,10 +320,17 @@
           <Property Type="Byte" Name="golosForaMao1" />
           <Property Type="Byte" Name="golosCasaMao2" />
           <Property Type="Byte" Name="golosForaMao2" />
-          <Property Type="DateTime" Name="dataMao2" Precision="0" />
           <Property Type="String" Name="replayAux" MaxLength="128" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="replayMao2" MaxLength="128" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="replayAuxMao2" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataOficial" Precision="3" />
+          <Property Type="DateTime" Name="dataOficialMao2" Precision="3" />
+          <Property Type="DateTime" Name="dataReal" Precision="3" />
+          <Property Type="DateTime" Name="dataRealMao2" Precision="3" />
+          <Property Type="Int32" Name="idEquipaCasa" />
+          <Property Type="Int32" Name="idEquipaFora" />
+          <NavigationProperty Name="Equipa2" Relationship="AHDBModel.FK__Jogo__idEquipaCa__79FD19BE" FromRole="Jogo" ToRole="Equipa" />
+          <NavigationProperty Name="Equipa11" Relationship="AHDBModel.FK__Jogo__idEquipaFo__7AF13DF7" FromRole="Jogo" ToRole="Equipa" />
         </EntityType>
         <Association Name="FK__Jogo__competicao__0C85DE4D">
           <End Role="Competicao" Type="AHDBModel.Competicao" Multiplicity="1" />
@@ -337,30 +341,6 @@
             </Principal>
             <Dependent Role="Jogo">
               <PropertyRef Name="competicaoID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Jogo__EquipaCasa__0D7A0286">
-          <End Role="Equipa" Type="AHDBModel.Equipa" Multiplicity="0..1" />
-          <End Role="Jogo" Type="AHDBModel.Jogo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Equipa">
-              <PropertyRef Name="idEquipa" />
-            </Principal>
-            <Dependent Role="Jogo">
-              <PropertyRef Name="EquipaCasa" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Jogo__EquipaFora__0E6E26BF">
-          <End Role="Equipa" Type="AHDBModel.Equipa" Multiplicity="0..1" />
-          <End Role="Jogo" Type="AHDBModel.Jogo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Equipa">
-              <PropertyRef Name="idEquipa" />
-            </Principal>
-            <Dependent Role="Jogo">
-              <PropertyRef Name="EquipaFora" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -410,6 +390,30 @@
             </Principal>
             <Dependent Role="LogJogadores">
               <PropertyRef Name="jogadorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Jogo__idEquipaCa__79FD19BE">
+          <End Type="AHDBModel.Equipa" Role="Equipa" Multiplicity="0..1" />
+          <End Type="AHDBModel.Jogo" Role="Jogo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipa">
+              <PropertyRef Name="idEquipa" />
+            </Principal>
+            <Dependent Role="Jogo">
+              <PropertyRef Name="idEquipaCasa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Jogo__idEquipaFo__7AF13DF7">
+          <End Type="AHDBModel.Equipa" Role="Equipa" Multiplicity="0..1" />
+          <End Type="AHDBModel.Jogo" Role="Jogo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipa">
+              <PropertyRef Name="idEquipa" />
+            </Principal>
+            <Dependent Role="Jogo">
+              <PropertyRef Name="idEquipaFora" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -478,10 +482,15 @@
           <EntitySetMapping Name="Jogo">
             <EntityTypeMapping TypeName="AHDBModel.Jogo">
               <MappingFragment StoreEntitySet="Jogo">
+                <ScalarProperty Name="idEquipaFora" ColumnName="idEquipaFora" />
+                <ScalarProperty Name="idEquipaCasa" ColumnName="idEquipaCasa" />
+                <ScalarProperty Name="dataRealMao2" ColumnName="dataRealMao2" />
+                <ScalarProperty Name="dataReal" ColumnName="dataReal" />
+                <ScalarProperty Name="dataOficialMao2" ColumnName="dataOficialMao2" />
+                <ScalarProperty Name="dataOficial" ColumnName="dataOficial" />
                 <ScalarProperty Name="replayAuxMao2" ColumnName="replayAuxMao2" />
                 <ScalarProperty Name="replayMao2" ColumnName="replayMao2" />
                 <ScalarProperty Name="replayAux" ColumnName="replayAux" />
-                <ScalarProperty Name="dataMao2" ColumnName="dataMao2" />
                 <ScalarProperty Name="golosForaMao2" ColumnName="golosForaMao2" />
                 <ScalarProperty Name="golosCasaMao2" ColumnName="golosCasaMao2" />
                 <ScalarProperty Name="golosForaMao1" ColumnName="golosForaMao1" />
@@ -492,11 +501,8 @@
                 <ScalarProperty Name="jogoID" ColumnName="jogoID" />
                 <ScalarProperty Name="golosCasa" ColumnName="golosCasa" />
                 <ScalarProperty Name="golosFora" ColumnName="golosFora" />
-                <ScalarProperty Name="data" ColumnName="data" />
                 <ScalarProperty Name="replay" ColumnName="replay" />
-                <ScalarProperty Name="EquipaCasa" ColumnName="EquipaCasa" />
-                <ScalarProperty Name="EquipaFora" ColumnName="EquipaFora" />
-              </MappingFragment>
+                </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LogJogadores">

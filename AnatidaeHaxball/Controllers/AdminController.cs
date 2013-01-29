@@ -73,6 +73,16 @@ namespace AnatidaeHaxball.Controllers
         {
             try
             {
+                Jogador oldJogador = AppServices.GetJogador(jogador.idJogador);
+
+                if (oldJogador.nome != jogador.nome || oldJogador.avatar != jogador.avatar)
+                {
+                    DataUtils.DeleteShirt(jogador.nomeShirt);
+                    jogador.nomeShirt = DataUtils.CreateJogadorShirt(
+                        HttpContext.Server.MapPath("~/Images/Player_Shirts"),
+                        jogador);
+                }
+
                 AppServices.EditJogador(jogador);
 
                 return RedirectToAction("Jogadores");
@@ -101,6 +111,8 @@ namespace AnatidaeHaxball.Controllers
         {
             try
             {
+                Jogador j = AppServices.GetJogador(id);
+                DataUtils.DeleteShirt(j.nomeShirt);
                 AppServices.RemoveJogador(id);
 
                 return RedirectToAction("Jogadores");
@@ -138,7 +150,7 @@ namespace AnatidaeHaxball.Controllers
 
         public ActionResult Equipas()
         {
-            return View(AppServices.GetAllEquipas());
+            return View(AppServices.GetAllEquipasActivas());
         }
 
         //

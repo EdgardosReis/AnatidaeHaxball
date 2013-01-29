@@ -45,7 +45,7 @@
             @Html.DisplayFor(modelItem => item.ave)
         </td>
         <td>
-            <img src="@DataUtils.GetShirt(item.nomeShirt)" />
+            <img height="190" src="@DataUtils.GetShirt(item.nomeShirt)" />
         </td>
         <td>
             <a href="@Url.Action("EditJogador", new { id=item.idJogador })"><img src="~/Images/edit-icon.png" /></a>

@@ -109,5 +109,10 @@ namespace AnatidaeHaxball
         {
             _equipaRepo.Remove(GetEquipa(id));
         }
+
+        internal static IEnumerable<Equipa> GetAllEquipasActivas()
+        {
+            return _equipaRepo.GetAll().Where(e => e.activa);
+        }
     }
 }

@@ -23,24 +23,26 @@ namespace AnatidaeHaxball
         public int jogoID { get; set; }
         public Nullable<short> golosCasa { get; set; }
         public Nullable<short> golosFora { get; set; }
-        public Nullable<System.DateTime> data { get; set; }
         public string replay { get; set; }
-        public Nullable<int> EquipaCasa { get; set; }
-        public Nullable<int> EquipaFora { get; set; }
         public byte nrMaos { get; set; }
         public string faseDaCompeticao { get; set; }
         public Nullable<byte> golosCasaMao1 { get; set; }
         public Nullable<byte> golosForaMao1 { get; set; }
         public Nullable<byte> golosCasaMao2 { get; set; }
         public Nullable<byte> golosForaMao2 { get; set; }
-        public Nullable<System.DateTime> dataMao2 { get; set; }
         public string replayAux { get; set; }
         public string replayMao2 { get; set; }
         public string replayAuxMao2 { get; set; }
+        public Nullable<System.DateTime> dataOficial { get; set; }
+        public Nullable<System.DateTime> dataOficialMao2 { get; set; }
+        public Nullable<System.DateTime> dataReal { get; set; }
+        public Nullable<System.DateTime> dataRealMao2 { get; set; }
+        public Nullable<int> idEquipaCasa { get; set; }
+        public Nullable<int> idEquipaFora { get; set; }
     
         public virtual Competicao Competicao { get; set; }
-        public virtual Equipa Equipa { get; set; }
-        public virtual Equipa Equipa1 { get; set; }
         public virtual ICollection<Estatistica> Estatistica { get; set; }
+        public virtual Equipa Equipa2 { get; set; }
+        public virtual Equipa Equipa11 { get; set; }
     }
 }
