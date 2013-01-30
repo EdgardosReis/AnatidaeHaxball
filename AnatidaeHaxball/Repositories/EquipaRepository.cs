@@ -15,14 +15,14 @@ namespace AnatidaeHaxball.Repositories
             return _repo.Equipa;
         }
 
-        public IEnumerable<Equipa> GetSome(params string[] ids)
+        public IEnumerable<Equipa> GetSome(params object[] ids)
         {
             throw new NotImplementedException();
         }
 
         public Equipa GetById(int id)
         {
-            return _repo.Equipa.First(e => e.idEquipa == id);
+            return _repo.Equipa.Find(id);
         }
 
         public void Add(Equipa t)
@@ -34,7 +34,7 @@ namespace AnatidaeHaxball.Repositories
 
         public void Edit(Equipa t)
         {
-            Equipa equipa = _repo.Equipa.First(e => e.idEquipa == t.idEquipa);
+            Equipa equipa = _repo.Equipa.Find(t.idEquipa);
             equipa.activa = t.activa;
             equipa.logo = t.logo;
             equipa.nome = t.nome;
@@ -43,9 +43,9 @@ namespace AnatidaeHaxball.Repositories
             _repo.SaveChanges();
         }
 
-        public void Remove(Equipa t)
+        public void Remove(object t)
         {
-            _repo.Equipa.Remove(t);
+            _repo.Equipa.Remove(_repo.Equipa.Find(t));
 
             _repo.SaveChanges();
         }

@@ -14,7 +14,7 @@ namespace AnatidaeHaxball.Repositories
             return _repo.LogJogadores;
         }
 
-        public IEnumerable<LogJogadores> GetSome(params string[] ids)
+        public IEnumerable<LogJogadores> GetSome(params object[] ids)
         {
             throw new NotImplementedException();
         }
@@ -39,9 +39,9 @@ namespace AnatidaeHaxball.Repositories
             _repo.SaveChanges();
         }
 
-        public void Remove(LogJogadores t)
+        public void Remove(object t)
         {
-            _repo.LogJogadores.Remove(t);
+            _repo.LogJogadores.Remove(_repo.LogJogadores.Find(t));
         }
 
         public bool Exists(int id)

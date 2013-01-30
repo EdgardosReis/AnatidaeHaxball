@@ -9,11 +9,11 @@ namespace AnatidaeHaxball.Repositories
     interface IRepository<T>
     {
         IEnumerable<T> GetAll();
-        IEnumerable<T> GetSome(params string[] ids);
+        IEnumerable<T> GetSome(params object[] ids);
         T GetById(int id);
         void Add(T t);
         void Edit(T t);
-        void Remove(T t);
+        void Remove(object t);
         bool Exists(int id);
     }
 }

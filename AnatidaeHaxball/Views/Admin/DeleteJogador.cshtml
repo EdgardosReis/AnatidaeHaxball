@@ -11,35 +11,12 @@
     as estatísticas e todos os registos referentes a este jogador.
 </h3>
 
-<fieldset>
-    <legend>Jogador</legend>
+@Html.Partial("_DeleteJogador")
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.nome)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.nome)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.avatar)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.avatar)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.posicao)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.posicao)
-    </div>
-
-
-
-</fieldset>
 @using (Html.BeginForm()) {
     <p>
+        @Html.HiddenFor(model => model.nomeShirt)
+
         <input type="submit" value="Delete" /> |
         @Html.ActionLink("Ver Jogadores", "Jogadores")
     </p>

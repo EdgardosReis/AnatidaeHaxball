@@ -7,31 +7,9 @@
 <h2>Remover Jogador da Equipa</h2>
 
 <h3>Tem a certeza que pretende tirar este jogador da equipa?</h3>
-<fieldset>
-    <legend>Jogador</legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.nome)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.nome)
-    </div>
+@Html.Partial("_DeleteJogador")
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.avatar)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.avatar)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.posicao)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.posicao)
-    </div>
-
-</fieldset>
 @using (Html.BeginForm()) {
     <div class="editor-field">
         @Html.DisplayName("Notas")

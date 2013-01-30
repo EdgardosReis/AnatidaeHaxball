@@ -107,13 +107,12 @@ namespace AnatidaeHaxball.Controllers
         // POST: /Admin/Delete/5
 
         [HttpPost]
-        public ActionResult DeleteJogador(int id, FormCollection collection)
+        public ActionResult DeleteJogador(int id, string nomeShirt)
         {
             try
             {
-                Jogador j = AppServices.GetJogador(id);
-                DataUtils.DeleteShirt(j.nomeShirt);
                 AppServices.RemoveJogador(id);
+                DataUtils.DeleteShirt(nomeShirt);
 
                 return RedirectToAction("Jogadores");
             }
@@ -165,10 +164,11 @@ namespace AnatidaeHaxball.Controllers
         // POST: /Admin/Create
 
         [HttpPost]
-        public ActionResult CreateEquipa(Equipa equipa)
+        public ActionResult CreateEquipa(Equipa equipa, HttpPostedFileBase image)
         {
             try
             {
+                equipa.logo = DataUtils.CreateTeamLogo(image, equipa);
                 AppServices.AddEquipa(equipa);
 
                 return RedirectToAction("Equipas");
@@ -217,11 +217,39 @@ namespace AnatidaeHaxball.Controllers
         // POST: /Admin/Delete/5
 
         [HttpPost]
-        public ActionResult DeleteEquipa(int id, Equipa equipa)
+        public ActionResult DeleteEquipa(int id, string logo)
         {
             try
             {
                 AppServices.RemoveEquipa(id);
+                DataUtils.DeleteTeamLogo(logo);
+
+                return RedirectToAction("Equipas");
+            }
+            catch
+            {
+                return View(AppServices.GetEquipa(id));
+            }
+        }
+
+        //
+        // GET: /Admin/Delete/5
+
+        public ActionResult DeactivateEquipa(int id)
+        {
+            return View(AppServices.GetEquipa(id));
+        }
+
+        //
+        // POST: /Admin/Delete/5
+
+        [HttpPost]
+        public ActionResult DeactivateEquipa(int id, string logo)
+        {
+            try
+            {
+                AppServices.RemoveEquipa(id);
+                DataUtils.DeleteTeamLogo(logo);
 
                 return RedirectToAction("Equipas");
             }

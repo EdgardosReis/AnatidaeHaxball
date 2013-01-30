@@ -4,17 +4,19 @@
 
 <img id="logo_oficial" src="../Images/logooficial.png" />
 
-@section scripts{
+@section head{
 
         <script type="text/javascript">
             /*<![CDATA[*/
-            $.fn.vAlign = function () {
-                return this.each(function () {
-        	        $(".floater").css('margin-top', -Math.ceil($(this).height() / 2)  + "px"); 
-                });
-            };
+            $(function () {
+                $.fn.vAlign = function () {
+                    return this.each(function () {
+                        $(".floater").css('margin-top', -Math.ceil($(this).height() / 2) + "px");
+                    });
+                };
 
-            $(".center").vAlign();
+                $(".center").vAlign();
+            });
             /*]]>*/
         </script>
 

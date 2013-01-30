@@ -54,7 +54,7 @@ namespace AnatidaeHaxball
 
         internal static void RemoveJogador(int id)
         {
-            _jogadorRepo.Remove(GetJogador(id));
+            _jogadorRepo.Remove(id);
         }
 
         internal static void RemoveJogadorFromTeam(int id, string notas)
@@ -95,19 +95,20 @@ namespace AnatidaeHaxball
             return _equipaRepo.GetById(id);
         }
 
-        public static void EditEquipa(Equipa jogador)
+        public static void EditEquipa(Equipa equipa)
         {
-            _equipaRepo.Edit(jogador);
+            _equipaRepo.Edit(equipa);
         }
 
-        public static void AddEquipa(Equipa jogador)
+        public static void AddEquipa(Equipa equipa)
         {
-            _equipaRepo.Add(jogador);
+            equipa.activa = true;
+            _equipaRepo.Add(equipa);
         }
 
         internal static void RemoveEquipa(int id)
         {
-            _equipaRepo.Remove(GetEquipa(id));
+            _equipaRepo.Remove(id);
         }
 
         internal static IEnumerable<Equipa> GetAllEquipasActivas()

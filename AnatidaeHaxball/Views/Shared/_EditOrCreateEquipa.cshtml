@@ -5,13 +5,15 @@
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm(Html.CurrentAction(), "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
     @Html.ValidationSummary(true)
 
     <fieldset>
         <legend>Equipa</legend>
 
         @Html.HiddenFor(model => model.idEquipa)
+        @Html.HiddenFor(model => model.activa)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.tag)
@@ -27,14 +29,6 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.nome)
             @Html.ValidationMessageFor(model => model.nome)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.activa)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.activa)
-            @Html.ValidationMessageFor(model => model.activa)
         </div>
 
         <div class="editor-label">

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
-using System.Web;
 
 namespace AnatidaeHaxball.Repositories
 {
@@ -15,14 +15,14 @@ namespace AnatidaeHaxball.Repositories
             return _repo.Jogador;
         }
 
-        public IEnumerable<Jogador> GetSome(params string[] ids)
+        public IEnumerable<Jogador> GetSome(params object[] ids)
         {
             throw new NotImplementedException();
         }
 
         public Jogador GetById(int id)
         {
-            return _repo.Jogador.First(j => j.idJogador == id);
+            return _repo.Jogador.Find(id);
         }
 
         public void Add(Jogador t)
@@ -34,7 +34,7 @@ namespace AnatidaeHaxball.Repositories
 
         public void Edit(Jogador t)
         {
-            Jogador jogador = _repo.Jogador.First(j => j.idJogador == t.idJogador);
+            Jogador jogador = _repo.Jogador.Find(t.idJogador);
             jogador.avatar = t.avatar;
             jogador.nome = t.nome;
             jogador.posicao = t.posicao;
@@ -42,12 +42,15 @@ namespace AnatidaeHaxball.Repositories
             jogador.nomeShirt = t.nomeShirt;
             jogador.ave = t.ave;
 
+            //_repo.Entry(t).State = EntityState.Modified;
+
+
             _repo.SaveChanges();
         }
 
-        public void Remove(Jogador t)
+        public void Remove(object id)
         {
-            _repo.Jogador.Remove(t);
+            _repo.Jogador.Remove(_repo.Jogador.Find(id));
 
             _repo.SaveChanges();
         }
@@ -56,5 +59,6 @@ namespace AnatidaeHaxball.Repositories
         {
             return _repo.Jogador.Contains(GetById(id));
         }
+
     }
 }

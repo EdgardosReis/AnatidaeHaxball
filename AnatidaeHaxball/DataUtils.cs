@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Text;
 using System.IO;
+using System.Web;
 
 namespace AnatidaeHaxball
 {
@@ -39,7 +40,7 @@ namespace AnatidaeHaxball
 
                     newShirt.Save(memoryStream, ImageFormat.Png);
 
-                    photoId = GenerateImageName(jogador.nome) + ".png";
+                    photoId = GenerateImageName(".png");
  
                     UploadFile(memoryStream, photoId, ConfigurationManager.AppSettings["AWSBucketShirts"]);
                 }
@@ -50,18 +51,46 @@ namespace AnatidaeHaxball
             return photoId;
         }
 
-        public static void UploadTeamLogo(string filePath, Equipa equipa)
+        internal static string CreateTeamLogo(HttpPostedFileBase file, Equipa equipa)
         {
-            UploadFile(filePath, null, ConfigurationManager.AppSettings["AWSBucketTeamLogos"]);
+            int maxWidth = 300;
+            int maxHeight = 300;
+
+            Image image = Image.FromStream(file.InputStream);
+
+            Stream stream = file.InputStream;
+            string imageName = GenerateImageName(file.FileName);
+            string bucket = ConfigurationManager.AppSettings["AWSBucketTeamLogos"];
+
+            if (image.Height > maxHeight || image.Width > maxWidth)
+            {
+                var ratioX = (double)maxWidth / image.Width;
+                var ratioY = (double)maxHeight / image.Height;
+                var ratio = Math.Min(ratioX, ratioY);
+
+                var newWidth = (int)(image.Width * ratio);
+                var newHeight = (int)(image.Height * ratio);
+
+                var newImage = new Bitmap(newWidth, newHeight);
+                Graphics.FromImage(newImage).DrawImage(image, 0, 0, newWidth, newHeight);
+
+                Stream resizedStream = new MemoryStream();
+
+                newImage.Save(resizedStream, ImageFormat.Png);
+
+                stream = resizedStream;
+            }
+
+
+            UploadFile(stream, imageName, bucket);
+
+            return imageName;
+
         }
 
-        private static string GenerateImageName(string name)
+        private static string GenerateImageName(string extension)
         {
-            if (name.Length > 12)
-            {
-                name = name.Substring(0, 12);
-            }
-            return  name + new Random().Next(1000, 9999);// +".png";
+            return Path.GetRandomFileName().Replace(".", "") + Path.GetExtension(extension);
         }
 
         public static string GetShirt(string imageId)
