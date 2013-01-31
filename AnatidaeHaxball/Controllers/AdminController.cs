@@ -90,7 +90,7 @@ namespace AnatidaeHaxball.Controllers
             catch
             {
                 JogadorModels jm = new JogadorModels();
-                jm.Jogador = AppServices.GetJogador(id);
+                jm.Jogador = jogador;
                 return View(jm);
             }
         }
@@ -191,17 +191,19 @@ namespace AnatidaeHaxball.Controllers
         // POST: /Admin/Edit/5
 
         [HttpPost]
-        public ActionResult EditEquipa(int id, Equipa equipa)
+        public ActionResult EditEquipa(int id, Equipa equipa, HttpPostedFileBase image)
         {
             try
             {
+                if(image != null)
+                    equipa.logo = DataUtils.CreateTeamLogo(image, equipa);
                 AppServices.EditEquipa(equipa);
 
                 return RedirectToAction("Equipas");
             }
             catch
             {
-                return View(AppServices.GetEquipa(id));
+                return View(equipa);
             }
         }
 

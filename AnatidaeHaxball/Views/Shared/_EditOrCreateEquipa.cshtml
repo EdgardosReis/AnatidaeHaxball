@@ -35,6 +35,10 @@
             @Html.LabelFor(model => model.logo)
         </div>
         <div class="editor-field">
+            @if(!String.IsNullOrEmpty(Model.logo)){
+                <img height="150" src="@AnatidaeHaxball.DataUtils.GetTeamLogo(Model.logo)" />
+            }
+                
             @Html.InputImage()
             @Html.ValidationMessageFor(model => model.logo)
         </div>

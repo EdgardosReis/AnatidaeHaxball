@@ -36,6 +36,7 @@ namespace AnatidaeHaxball.HtmlHelpers
         {
             //Upload new image: <input type="file" name="Image" accept="image/*" />
             StringBuilder result = new StringBuilder();
+            result.Append("Nova Imagem: ");
             TagBuilder tag = new TagBuilder("input");
             tag.MergeAttribute("type", "file");
             tag.MergeAttribute("name", "Image");
