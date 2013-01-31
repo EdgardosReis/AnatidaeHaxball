@@ -51,8 +51,11 @@ namespace AnatidaeHaxball
             return photoId;
         }
 
-        internal static string CreateTeamLogo(HttpPostedFileBase file, Equipa equipa)
+        internal static string CreateTeamLogo(HttpPostedFileBase file)
         {
+            if (file == null) 
+                throw new ArgumentNullException("file", "O argumento passado ao método CreateTeamLogo não pode ser null");
+
             int maxWidth = 300;
             int maxHeight = 300;
 
@@ -95,22 +98,26 @@ namespace AnatidaeHaxball
 
         public static string GetShirt(string imageId)
         {
+            if (imageId == null) return "";
             return GetFileUrl(imageId, ConfigurationManager.AppSettings["AWSBucketShirts"]);
         }
 
 
         internal static void DeleteShirt(string imageId)
         {
+            if (imageId == null) return;
             DeleteFile(imageId, ConfigurationManager.AppSettings["AWSBucketShirts"]);
         }
 
         public static string GetTeamLogo(string imageId)
         {
+            if (imageId == null) return "";
             return GetFileUrl(imageId, ConfigurationManager.AppSettings["AWSBucketTeamLogos"]);
         }
 
         internal static void DeleteTeamLogo(string imageId)
         {
+            if (imageId == null) return;
             DeleteFile(imageId, ConfigurationManager.AppSettings["AWSBucketTeamLogos"]);
         }
 

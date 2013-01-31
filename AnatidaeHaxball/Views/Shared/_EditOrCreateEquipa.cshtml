@@ -14,6 +14,7 @@
 
         @Html.HiddenFor(model => model.idEquipa)
         @Html.HiddenFor(model => model.activa)
+        @Html.HiddenFor(model => model.logo)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.tag)
@@ -35,8 +36,8 @@
             @Html.LabelFor(model => model.logo)
         </div>
         <div class="editor-field">
-            @if(!String.IsNullOrEmpty(Model.logo)){
-                <img height="150" src="@AnatidaeHaxball.DataUtils.GetTeamLogo(Model.logo)" />
+            @if(Model != null && !String.IsNullOrEmpty(Model.logo)){
+                <img height="150" src="@AnatidaeHaxball.DataUtils.GetTeamLogo(Model.logo)" /><br />
             }
                 
             @Html.InputImage()

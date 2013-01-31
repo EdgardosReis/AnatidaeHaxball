@@ -168,7 +168,8 @@ namespace AnatidaeHaxball.Controllers
         {
             try
             {
-                equipa.logo = DataUtils.CreateTeamLogo(image, equipa);
+                if(image != null) 
+                    equipa.logo = DataUtils.CreateTeamLogo(image);
                 AppServices.AddEquipa(equipa);
 
                 return RedirectToAction("Equipas");
@@ -196,7 +197,7 @@ namespace AnatidaeHaxball.Controllers
             try
             {
                 if(image != null)
-                    equipa.logo = DataUtils.CreateTeamLogo(image, equipa);
+                    equipa.logo = DataUtils.CreateTeamLogo(image);
                 AppServices.EditEquipa(equipa);
 
                 return RedirectToAction("Equipas");
