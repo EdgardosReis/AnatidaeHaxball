@@ -115,5 +115,12 @@ namespace AnatidaeHaxball
         {
             return _equipaRepo.GetAll().Where(e => e.activa);
         }
+
+        internal static void DeactivateEquipa(int id)
+        {
+            Equipa e = GetEquipa(id);
+            e.activa = false;
+            EditEquipa(e);
+        }
     }
 }

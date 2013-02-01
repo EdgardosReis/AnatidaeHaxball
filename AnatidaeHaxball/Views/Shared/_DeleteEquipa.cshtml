@@ -1,4 +1,5 @@
-﻿@model AnatidaeHaxball.Equipa
+﻿@using AnatidaeHaxball
+@model AnatidaeHaxball.Equipa
 
 <fieldset>
     <legend>Equipa</legend>
@@ -21,7 +22,7 @@
          @Html.DisplayNameFor(model => model.logo)
     </div>
     <div class="display-field">
-        <img height="150" src="@AnatidaeHaxball.DataUtils.GetTeamLogo(Model.logo)" />
+        <img height="150" src="@DataUtils.GetTeamLogo(Model.logo)" />
     </div>
 </fieldset>
 @using (Html.BeginForm()) {
@@ -29,6 +30,6 @@
         @Html.HiddenFor(model => model.logo)
 
         <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Back to List", "Equipas")
     </p>
 }

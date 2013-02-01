@@ -98,26 +98,26 @@ namespace AnatidaeHaxball
 
         public static string GetShirt(string imageId)
         {
-            if (imageId == null) return "";
+            if (String.IsNullOrEmpty(imageId)) return "";
             return GetFileUrl(imageId, ConfigurationManager.AppSettings["AWSBucketShirts"]);
         }
 
 
         internal static void DeleteShirt(string imageId)
         {
-            if (imageId == null) return;
+            if (String.IsNullOrEmpty(imageId)) return;
             DeleteFile(imageId, ConfigurationManager.AppSettings["AWSBucketShirts"]);
         }
 
         public static string GetTeamLogo(string imageId)
         {
-            if (imageId == null) return "";
+            if (String.IsNullOrEmpty(imageId)) return "";
             return GetFileUrl(imageId, ConfigurationManager.AppSettings["AWSBucketTeamLogos"]);
         }
 
         internal static void DeleteTeamLogo(string imageId)
         {
-            if (imageId == null) return;
+            if (String.IsNullOrEmpty(imageId)) return;
             DeleteFile(imageId, ConfigurationManager.AppSettings["AWSBucketTeamLogos"]);
         }
 

@@ -6,35 +6,5 @@
 }
 
 <h3>Tem a certeza que pretende remover esta equipa?</h3>
-<fieldset>
-    <legend>Equipa</legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.tag)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.tag)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.nome)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.nome)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.logo)
-    </div>
-    <div class="display-field">
-        <img height="150" src="@DataUtils.GetTeamLogo(Model.logo)" />
-    </div>
-</fieldset>
-@using (Html.BeginForm()) {
-    <p>
-        @Html.HiddenFor(model => model.logo)
-
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-}
+@Html.Partial("_DeleteEquipa")

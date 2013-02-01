@@ -420,6 +420,8 @@
     <Content Include="Views\Admin\DeleteEquipa.cshtml" />
     <Content Include="Views\Shared\_DeleteJogador.cshtml" />
     <Content Include="Views\Shared\_DeleteEquipa.cshtml" />
+    <Content Include="Views\Admin\DeactivateEquipa.cshtml" />
+    <Content Include="Views\Admin\UnremovableEquipa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

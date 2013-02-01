@@ -224,6 +224,8 @@ namespace AnatidaeHaxball.Controllers
         {
             try
             {
+                //if(AppServices.GetJogosWhere(c => c.idEquipaCasa == id || c.idEquipaFora == id).Size > 0)
+                // return View("UnremovableEquipa");
                 AppServices.RemoveEquipa(id);
                 DataUtils.DeleteTeamLogo(logo);
 
