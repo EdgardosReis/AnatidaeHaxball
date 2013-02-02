@@ -263,5 +263,67 @@ namespace AnatidaeHaxball.Controllers
                 return View(AppServices.GetEquipa(id));
             }
         }
+
+
+        //************************************// COMPETICOES //************************************//
+
+
+        public ActionResult Competicoes()
+        {
+            return View(AppServices.GetActiveCompeticoes());
+        }
+
+        public ActionResult CreateCompeticao()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Admin/Create
+
+        [HttpPost]
+        public ActionResult CreateCompeticao(Competicao competicao, HttpPostedFileBase image)
+        {
+            try
+            {
+                if (image != null)
+                    competicao.imagem = DataUtils.CreateCompeticaoLogo(image);
+                AppServices.AddCompeticao(competicao);
+
+                return RedirectToAction("Competicoes");
+            }
+            catch
+            {
+                return View(competicao);
+            }
+        }
+
+        //
+        // GET: /Admin/Edit/5
+
+        public ActionResult EditCompeticao(int id)
+        {
+            return View(AppServices.GetCompeticao(id));
+        }
+
+        //
+        // POST: /Admin/Edit/5
+
+        [HttpPost]
+        public ActionResult EditCompeticao(int id, Competicao competicao, HttpPostedFileBase image)
+        {
+            try
+            {
+                if (image != null)
+                    competicao.imagem = DataUtils.CreateCompeticaoLogo(image);
+                AppServices.EditCompeticao(competicao);
+
+                return RedirectToAction("Competicoes");
+            }
+            catch
+            {
+                return View(competicao);
+            }
+        }
     }
 }

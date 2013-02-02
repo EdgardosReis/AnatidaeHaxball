@@ -53,8 +53,18 @@ namespace AnatidaeHaxball
 
         internal static string CreateTeamLogo(HttpPostedFileBase file)
         {
-            if (file == null) 
-                throw new ArgumentNullException("file", "O argumento passado ao método CreateTeamLogo não pode ser null");
+            return CreateImageFromFile(file, ConfigurationManager.AppSettings["AWSBucketTeamLogos"]);
+        }
+
+        internal static string CreateCompeticaoLogo(HttpPostedFileBase file)
+        {
+            return CreateImageFromFile(file, ConfigurationManager.AppSettings["AWSBucketCompetitionLogos"]);
+        }
+
+        private static string CreateImageFromFile(HttpPostedFileBase file, string bucket)
+        {
+            if (file == null)
+                throw new ArgumentNullException("file", "O argumento passado ao método não pode ser null");
 
             int maxWidth = 300;
             int maxHeight = 300;
@@ -63,7 +73,6 @@ namespace AnatidaeHaxball
 
             Stream stream = file.InputStream;
             string imageName = GenerateImageName(file.FileName);
-            string bucket = ConfigurationManager.AppSettings["AWSBucketTeamLogos"];
 
             if (image.Height > maxHeight || image.Width > maxWidth)
             {
@@ -88,7 +97,6 @@ namespace AnatidaeHaxball
             UploadFile(stream, imageName, bucket);
 
             return imageName;
-
         }
 
         private static string GenerateImageName(string extension)
@@ -190,6 +198,8 @@ namespace AnatidaeHaxball
                 client.PutObject(request);
             }
         }
+
+
 
 
     }

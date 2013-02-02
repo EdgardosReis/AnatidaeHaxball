@@ -11,6 +11,7 @@ namespace AnatidaeHaxball
         private static readonly JogadorRepository _jogadorRepo = JogadorRepositoryLocator.Get();
         private static readonly EquipaRepository _equipaRepo = EquipaRepositoryLocator.Get();
         private static readonly LogJogadorRepository _logJogRepo = LogJogadorRepositoryLocator.Get();
+        private static readonly CompeticaoRepository _competicaoRepo = CompeticaoRepositoryLocator.Get();
 
         public static IEnumerable<Jogador> GetAllJogadores()
         {
@@ -121,6 +122,46 @@ namespace AnatidaeHaxball
             Equipa e = GetEquipa(id);
             e.activa = false;
             EditEquipa(e);
+        }
+
+        //************************************// COMPETICOES //************************************//
+
+        internal static IEnumerable<Competicao> GetAllCompeticoes()
+        {
+            return _competicaoRepo.GetAll();
+        }
+
+        internal static IEnumerable<Competicao> GetActiveCompeticoes()
+        {
+            return GetAllCompeticoes().Where(c => c.activa);
+        }
+
+        internal static IEnumerable<Competicao> GetInactiveCompeticoes()
+        {
+            return GetAllCompeticoes().Where(c => !c.activa);
+        }
+
+        internal static Competicao GetCompeticao(int id)
+        {
+            return _competicaoRepo.GetById(id);
+        }
+
+        internal static void AddCompeticao(Competicao competicao)
+        {
+            competicao.activa = true;
+            _competicaoRepo.Add(competicao);
+        }
+
+        internal static void EditCompeticao(Competicao competicao)
+        {
+            _competicaoRepo.Edit(competicao);
+        }
+
+        internal static void DeactivateCompeticao(int id)
+        {
+            Competicao competicao = GetCompeticao(id);
+            competicao.activa = false;
+            EditCompeticao(competicao);
         }
     }
 }

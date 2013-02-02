@@ -1,0 +1,46 @@
+﻿@using AnatidaeHaxball.HtmlHelpers
+@model IEnumerable<AnatidaeHaxball.Competicao>
+
+@{
+    ViewBag.Title = "Competicoes";
+}
+
+<h2>Competicoes</h2>
+
+<p>
+    @Html.ActionLink("Criar Nova", "CreateCompeticao")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edicao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imagem)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.LinkFor(modelItem => item.nome, item.link)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.edicao)
+        </td>
+        <td>
+            <img height="150" src="@AnatidaeHaxball.DataUtils.GetTeamLogo(item.imagem)" />
+        </td>
+        <td>
+            <a href="@Url.Action("EditCompeticao", new { id=item.competicaoID })"><img src="~/Images/edit-icon.png" /></a>
+            <a href="@Url.Action("DeactivateCompeticao", new { id=item.competicaoID })"><img src="~/Images/delete-icon.png" /></a>
+            <a href="@Url.Action("DeleteCompeticao", new { id=item.competicaoID })"><img src="~/Images/bin-icon.png" /></a>
+        </td>
+    </tr>
+}
+
+</table>

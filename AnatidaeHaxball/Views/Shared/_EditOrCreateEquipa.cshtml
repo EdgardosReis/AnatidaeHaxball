@@ -1,10 +1,6 @@
 ﻿@using AnatidaeHaxball.HtmlHelpers
 @model AnatidaeHaxball.Equipa
 
-<script src="~/Scripts/jquery-1.7.1.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-
 @using (Html.BeginForm(Html.CurrentAction(), "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary(true)

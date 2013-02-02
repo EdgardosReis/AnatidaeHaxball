@@ -223,6 +223,8 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\JogadorModels.cs" />
+    <Compile Include="Repositories\CompeticaoRepository.cs" />
+    <Compile Include="Repositories\CompeticaoRepositoryLocator.cs" />
     <Compile Include="Repositories\LogJogadorRepositoryLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EquipaRepository.cs" />
@@ -376,7 +378,9 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -422,6 +426,11 @@
     <Content Include="Views\Shared\_DeleteEquipa.cshtml" />
     <Content Include="Views\Admin\DeactivateEquipa.cshtml" />
     <Content Include="Views\Admin\UnremovableEquipa.cshtml" />
+    <Content Include="Views\Admin\UnremovableCompeticao.cshtml" />
+    <Content Include="Views\Admin\Competicoes.cshtml" />
+    <Content Include="Views\Admin\CreateCompeticao.cshtml" />
+    <Content Include="Views\Shared\_EditOrCreateCompeticao.cshtml" />
+    <Content Include="Views\Admin\EditCompeticao.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

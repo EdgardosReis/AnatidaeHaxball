@@ -1,0 +1,61 @@
+﻿@using AnatidaeHaxball.HtmlHelpers
+@model AnatidaeHaxball.Competicao
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Competicao</legend>
+
+        @Html.HiddenFor(model => model.competicaoID)
+        @Html.HiddenFor(model => model.activa)
+        @Html.HiddenFor(model => model.imagem)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.nome)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.nome)
+            @Html.ValidationMessageFor(model => model.nome)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.edicao)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.edicao)
+            @Html.ValidationMessageFor(model => model.edicao)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.link)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.link)
+            @Html.ValidationMessageFor(model => model.link)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.imagem)
+        </div>
+        <div class="editor-field">
+            @if (Model != null && !String.IsNullOrEmpty(Model.imagem))
+            {
+                <img height="150" src="@AnatidaeHaxball.DataUtils.GetTeamLogo(Model.imagem)" /><br />
+            }
+                
+            @Html.InputImage()
+            @Html.ValidationMessageFor(model => model.imagem)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Ver Competições", "Competicoes")
+</div>
+

@@ -24,6 +24,7 @@ namespace AnatidaeHaxball
         public short edicao { get; set; }
         public string link { get; set; }
         public string imagem { get; set; }
+        public bool activa { get; set; }
     
         public virtual ICollection<Jogo> Jogo { get; set; }
     }
